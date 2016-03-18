@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 13:52:46 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/18 16:58:59 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/18 17:05:25 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,8 @@ static t_mlx	*init_mlx(int argc, const char *s)
 		ft_putendl("error : player not found in map");
 		return (NULL);
 	}
+	mlx->cam.xplane = 0.0;
+	mlx->cam.yplane = 0.6;
 	return (mlx);
 }
 

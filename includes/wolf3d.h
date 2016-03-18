@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 14:23:56 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/18 17:01:10 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/18 17:09:22 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ typedef struct	s_draw
 	int			ystep;
 	double		xside_dist;
 	double		yside_dist;
-	double		xdela_dist;
+	double		xdelta_dist;
 	double		ydelta_dist;
 }				t_draw;
 
