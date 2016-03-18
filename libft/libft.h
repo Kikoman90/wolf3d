@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 13:21:24 by fsidler           #+#    #+#             */
-/*   Updated: 2016/02/17 18:10:48 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/18 19:43:33 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ char				*ft_strdup(const char *str);
 char				*ft_strstr(const char *tot, const char *fnd);
 char				*ft_strnstr(const char *total, const char *find, size_t n);
 
-size_t				ft_strlen(const char *str);
 size_t				ft_strlcat(char *dest, const char *src, size_t n);
+size_t				ft_strlen(const char *str);
 
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);

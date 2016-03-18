@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 13:52:46 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/18 17:05:25 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/18 19:54:54 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,22 +86,21 @@ static char		**ft_getmap(char *buf, int nbl, int j)
 
 static t_mlx	*init_mlx(int argc, const char *s)
 {
-	int		nbl;
 	t_mlx	*mlx;
 	char	*buf;
 	char	*name;
 
-	nbl = 0;
 	name = ft_strjoin("wolf3d: ", s);
 	if (!(mlx = (t_mlx *)malloc(sizeof(t_mlx))))
 		return (NULL);
+	mlx->nbl = 0;
 	mlx->mlx = mlx_init();
 	mlx->img = mlx_new_image(mlx->mlx, WIN_W, WIN_H);
 	mlx->win = mlx_new_window(mlx->mlx, WIN_W, WIN_H, name);
 	mlx->d = mlx_get_data_addr(mlx->img, &mlx->bpp, &mlx->size_line, \
 			&mlx->endian);
-	buf = ft_getbuf(argc, s, &nbl);
-	if ((mlx->map = ft_getmap(buf, nbl, 0)) == NULL)
+	buf = ft_getbuf(argc, s, &(mlx->nbl));
+	if ((mlx->map = ft_getmap(buf, mlx->nbl, 0)) == NULL)
 		return (NULL);
 	if (ft_player_init(mlx) == -1)
 	{

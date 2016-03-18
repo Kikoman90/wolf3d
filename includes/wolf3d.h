@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 14:23:56 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/18 19:12:34 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/18 19:47:00 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ typedef struct	s_draw
 
 typedef struct	s_mlx
 {
+	int			nbl;
 	int			bpp;
 	int			size_line;
 	int			endian;

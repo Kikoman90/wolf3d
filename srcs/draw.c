@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 16:36:22 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/18 19:21:50 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/18 19:52:13 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,10 @@ static void	ft_draw_slice(t_mlx *mlx)
 		else if (y > mlx->draw.end)
 			color = GRAY;
 		else
-			color = ft_wall_color(mlx);
+		{
+			if (mlx->draw.hit == 1)
+				color = ft_wall_color(mlx);
+		}
 		ft_put_pixel(mlx, mlx->draw.x, y, color);
 		y++;
 	}

@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 17:44:32 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/18 19:14:41 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/18 19:47:13 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ static void	ft_step(t_mlx *mlx)
 
 static void	ft_hit(t_mlx *mlx)
 {
-	while (mlx->draw.hit != 1)
+	while (mlx->draw.hit != 1 && mlx->draw.ymap > 0 && \
+			mlx->draw.ymap < ft_linelen(mlx->map[mlx->draw.xmap], 0) && \
+			mlx->draw.xmap > 0 && mlx->draw.xmap <= mlx->nbl)
 	{
 		if (mlx->draw.xside_dist < mlx->draw.yside_dist)
 		{
