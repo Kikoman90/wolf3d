@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 14:23:56 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/18 17:09:22 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/18 19:12:34 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@
 # include <math.h>
 # include <errno.h>
 # include <stdlib.h>
+
+# define RED 0xFE0000
+# define ORANGE 0xFE7700
+# define BLUE 0x00B2FE
+# define YELLOW 0xFEFE00
+# define BLACK 0x000000
+# define GRAY 0x686868
 
 # define WIN_W 800
 # define WIN_H 800
@@ -56,7 +63,6 @@ typedef struct	s_draw
 	int			height;
 	int			side;
 	int			hit;
-	int			color;
 	int			xstep;
 	int			ystep;
 	double		xside_dist;
@@ -85,5 +91,7 @@ int				ft_checkchar(char *buf);
 int				ft_player_init(t_mlx *mlx);
 int				ft_linelen(char *buf, int k);
 void			ft_draw(t_mlx *mlx);
+void			ft_raycast(t_mlx *mlx);
+void			ft_put_pixel(t_mlx *mlx, int x, int y, int color);
 
 #endif
