@@ -6,7 +6,7 @@
 #    By: fsidler <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/09 13:47:47 by fsidler           #+#    #+#              #
-#    Updated: 2016/03/17 18:39:56 by fsidler          ###   ########.fr        #
+#    Updated: 2016/03/18 17:02:52 by fsidler          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ HEADERS = includes
 
 SOURCES = srcs/main.c \
 		  srcs/tools.c \
+		  srcs/draw.c \
 
 OBJECTS = $(SOURCES:.c=.o)
 

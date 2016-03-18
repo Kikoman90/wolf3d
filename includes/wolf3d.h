@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 14:23:56 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/18 15:20:51 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/18 17:01:10 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct	s_cam
 	double		wall_dist;
 }				t_cam;
 
-typedef struct	s_geo
+typedef struct	s_draw
 {
 	int			x;
 	int			xmap;
@@ -63,7 +63,7 @@ typedef struct	s_geo
 	double		yside_dist;
 	double		xdela_dist;
 	double		ydelta_dist;
-}				t_geo;
+}				t_draw;
 
 typedef struct	s_mlx
 {
@@ -76,11 +76,14 @@ typedef struct	s_mlx
 	void		*win;
 	void		*img;
 	t_cam		cam;
-	t_geo		geo;
+	t_draw		draw;
 	t_player	player;
 }				t_mlx;
 
+int				ft_instructions(void);
 int				ft_checkchar(char *buf);
+int				ft_player_init(t_mlx *mlx);
 int				ft_linelen(char *buf, int k);
+void			ft_draw(t_mlx *mlx);
 
 #endif

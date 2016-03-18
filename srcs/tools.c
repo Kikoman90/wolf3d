@@ -6,11 +6,52 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 18:38:26 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/17 19:01:04 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/18 17:01:49 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
+
+int		ft_player_init(t_mlx *mlx)
+{
+	int		i;
+	int		j;
+
+	j = 0;
+	while (mlx->map[j])
+	{
+		i = 0;
+		while (mlx->map[j][i])
+		{
+			if (mlx->map[j][i] == 'X')
+			{
+				mlx->player.xpos = j;
+				mlx->player.ypos = i;
+				mlx->player.xdir = -1;
+				mlx->player.ydir = 0;
+				mlx->player.mvspd = 0.2;
+				mlx->player.rtspd = 0.05;
+				return (0);
+			}
+			i++;
+		}
+		j++;
+	}
+	return (-1);
+}
+
+int		ft_instructions(void)
+{
+	ft_putendl("--- INSTRUCTIONS ---");
+	ft_putendl("mouse : rotate camera");
+	ft_putendl("< ^ > v : move");
+	ft_putendl("SPC : jump");
+	ft_putendl("CTRL : crouch");
+	ft_putendl("F : activate fog");
+	ft_putendl("+/- : increase/decrease FOV");
+	ft_putendl("ESC : close");
+	return (0);
+}
 
 int		ft_linelen(char *buf, int k)
 {

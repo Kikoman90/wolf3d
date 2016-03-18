@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 13:52:46 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/18 16:19:44 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/18 16:58:59 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,11 @@ static t_mlx	*init_mlx(int argc, const char *s)
 	buf = ft_getbuf(argc, s, &nbl);
 	if ((mlx->map = ft_getmap(buf, nbl, 0)) == NULL)
 		return (NULL);
+	if (ft_player_init(mlx) == -1)
+	{
+		ft_putendl("error : player not found in map");
+		return (NULL);
+	}
 	return (mlx);
 }
 
@@ -112,10 +117,10 @@ int				main(int argc, char **argv)
 
 	if ((mlx = init_mlx(argc, argv[1])) != NULL)
 	{
-		/*ft_instructions();
-		  ft_draw(mlx);
-		  mlx_key_hook(mlx->win, key_hook, mlx);
-		  mlx_mouse_hook(mlx->win, ft_mouse, mlx);*/
+		ft_instructions();
+		ft_draw(mlx);
+		//mlx_key_hook(mlx->win, key_hook, mlx);
+		//mlx_mouse_hook(mlx->win, ft_mouse, mlx);
 		mlx_loop(mlx->mlx);
 		mlx_destroy_window(mlx->mlx, mlx->win);
 	}
