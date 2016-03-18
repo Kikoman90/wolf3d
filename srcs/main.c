@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 13:52:46 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/17 19:16:21 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/18 16:19:44 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int		ft_start(const char *s, int argc, int *fd)
 	}
 	if ((*fd = open(s, O_RDONLY)) == -1)
 	{
-		ft_putendl(ft_strjoin("error: ",strerror(errno)));
+		ft_putendl(ft_strjoin("error: ", strerror(errno)));
 		return (-1);
 	}
 	return (1);
@@ -43,7 +43,7 @@ static char		*ft_getbuf(int argc, const char *s, int *nbl)
 		return (NULL);
 	while (get_next_line(fd, &line) > 0 && (*nbl)++ > -1)
 		buf = ft_strjoin(ft_strjoin(buf, line), "\n");
-	if (get_next_line(fd, &line) != 0)
+	if (get_next_line(fd, &line) < 0)
 	{
 		ft_putendl("error: get_next_line returned -1");
 		free(buf);
@@ -91,6 +91,7 @@ static t_mlx	*init_mlx(int argc, const char *s)
 	char	*buf;
 	char	*name;
 
+	nbl = 0;
 	name = ft_strjoin("wolf3d: ", s);
 	if (!(mlx = (t_mlx *)malloc(sizeof(t_mlx))))
 		return (NULL);
@@ -112,9 +113,9 @@ int				main(int argc, char **argv)
 	if ((mlx = init_mlx(argc, argv[1])) != NULL)
 	{
 		/*ft_instructions();
-		ft_draw(mlx);
-		mlx_key_hook(mlx->win, key_hook, mlx);
-		mlx_mouse_hook(mlx->win, ft_mouse, mlx);*/
+		  ft_draw(mlx);
+		  mlx_key_hook(mlx->win, key_hook, mlx);
+		  mlx_mouse_hook(mlx->win, ft_mouse, mlx);*/
 		mlx_loop(mlx->mlx);
 		mlx_destroy_window(mlx->mlx, mlx->win);
 	}

@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 14:23:56 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/17 18:45:09 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/18 15:20:51 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,60 @@
 
 # define BUFF_SIZE 100
 
+typedef struct	s_player
+{
+	double		xpos;
+	double		ypos;
+	double		xdir;
+	double		ydir;
+	double		mvspd;
+	double		rtspd;
+}				t_player;
+
+typedef struct	s_cam
+{
+	double		x;
+	double		xpos;
+	double		ypos;
+	double		xdir;
+	double		ydir;
+	double		xplane;
+	double		yplane;
+	double		wall_dist;
+}				t_cam;
+
+typedef struct	s_geo
+{
+	int			x;
+	int			xmap;
+	int			ymap;
+	int			start;
+	int			end;
+	int			height;
+	int			side;
+	int			hit;
+	int			color;
+	int			xstep;
+	int			ystep;
+	double		xside_dist;
+	double		yside_dist;
+	double		xdela_dist;
+	double		ydelta_dist;
+}				t_geo;
+
 typedef struct	s_mlx
 {
 	int			bpp;
-	int			endian;
 	int			size_line;
+	int			endian;
 	char		*d;
 	char		**map;
 	void		*mlx;
 	void		*win;
 	void		*img;
+	t_cam		cam;
+	t_geo		geo;
+	t_player	player;
 }				t_mlx;
 
 int				ft_checkchar(char *buf);
