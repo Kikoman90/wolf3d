@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 16:36:22 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/22 15:19:17 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/22 17:18:05 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	ft_draw_slice(t_mlx *mlx)
 	while (y < WIN_H)
 	{
 		if (y < mlx->draw.start)
-			color = BLACK;
+			color = SKY;
 		else if (y > mlx->draw.end)
 			color = GRAY;
 		else

@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 14:11:42 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/22 15:24:44 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/22 17:33:42 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static int	ft_rotate(int keycode, double tmp_dir, double tmp_plane, t_mlx *mlx)
 {
+	if (keycode == 53)
+		exit(0);
 	if (keycode == 123)
 	{
 		mlx->player.xdir = mlx->player.xdir * cos(mlx->player.rtspd)
@@ -41,8 +43,6 @@ static int	ft_rotate(int keycode, double tmp_dir, double tmp_plane, t_mlx *mlx)
 
 int			key_hook(int keycode, t_mlx *mlx)
 {
-	if (keycode == 53)
-		exit(0);
 	if (keycode == 126)
 	{
 		if (mlx->map[(int)(mlx->player.xpos + mlx->player.xdir
@@ -61,6 +61,10 @@ int			key_hook(int keycode, t_mlx *mlx)
 					- mlx->player.ydir * mlx->player.mvspd)] != '1')
 			mlx->player.ypos -= mlx->player.ydir * mlx->player.mvspd;
 	}
+	if (keycode == 78)
+		mlx->dh = (mlx->dh < 120) ? mlx->dh + 0.5 : mlx->dh;
+	if (keycode == 69)
+		mlx->dh = (mlx->dh > 0.5) ? mlx->dh - 0.5 : mlx->dh;
 	ft_rotate(keycode, mlx->player.xdir, mlx->cam.xplane, mlx);
 	ft_draw(mlx);
 	return (0);

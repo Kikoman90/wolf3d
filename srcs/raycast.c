@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 17:44:32 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/22 15:18:24 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/22 17:23:28 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void		ft_raycast(t_mlx *mlx)
 	ft_hit(mlx);
 	ft_wall_dist(mlx);
 	mlx->draw.height = fabs(WIN_H / mlx->cam.wall_dist);
-	if ((mlx->draw.start = -(mlx->draw.height) / 2 + WIN_H / 2) < 0)
+	if ((mlx->draw.start = -(mlx->draw.height) / mlx->dh + WIN_H / 2) < 0)
 		mlx->draw.start = 0;
 	if ((mlx->draw.end = mlx->draw.height / 2 + WIN_H / 2) >= WIN_H)
 		mlx->draw.end = WIN_H - 1;

@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 14:23:56 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/22 15:06:45 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/22 17:15:30 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define ORANGE 0xFE7700
 # define BLUE 0x00B2FE
 # define YELLOW 0xFEFE00
-# define BLACK 0x000000
+# define SKY 0x5AD4EC
 # define GRAY 0x686868
 
 # define WIN_W 800
@@ -87,6 +87,7 @@ typedef struct	s_mlx
 	void		*mlx;
 	void		*win;
 	void		*img;
+	double		dh;
 	t_cam		cam;
 	t_draw		draw;
 	t_player	player;

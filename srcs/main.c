@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 13:52:46 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/22 15:19:47 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/22 17:21:24 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ static t_mlx	*init_mlx(int argc, const char *s)
 	}
 	mlx->cam.xplane = 0.0;
 	mlx->cam.yplane = 0.6;
+	mlx->dh = 2.0;
 	return (mlx);
 }
 
