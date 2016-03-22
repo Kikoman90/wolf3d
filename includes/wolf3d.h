@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 14:23:56 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/22 17:15:30 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/22 17:37:27 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@
 
 # define KEYPRESS (2)
 # define KEYPRESSMASK (1L << 0)
-# define KEYRELEASE (3)
-# define KEYRELEASEMASK (1L << 1)
 
 # define BUFF_SIZE 100
 
