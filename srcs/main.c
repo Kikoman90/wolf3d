@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 13:52:46 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/18 19:54:54 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/22 15:19:47 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,8 +120,7 @@ int				main(int argc, char **argv)
 	{
 		ft_instructions();
 		ft_draw(mlx);
-		//mlx_key_hook(mlx->win, key_hook, mlx);
-		//mlx_mouse_hook(mlx->win, ft_mouse, mlx);
+		mlx_hook(mlx->win, KEYPRESS, KEYPRESSMASK, key_hook, mlx);
 		mlx_loop(mlx->mlx);
 		mlx_destroy_window(mlx->mlx, mlx->win);
 	}

@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 14:23:56 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/18 19:47:00 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/22 15:06:45 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@
 
 # define WIN_W 800
 # define WIN_H 800
+
+# define KEYPRESS (2)
+# define KEYPRESSMASK (1L << 0)
+# define KEYRELEASE (3)
+# define KEYRELEASEMASK (1L << 1)
 
 # define BUFF_SIZE 100
 
@@ -91,6 +96,7 @@ int				ft_instructions(void);
 int				ft_checkchar(char *buf);
 int				ft_player_init(t_mlx *mlx);
 int				ft_linelen(char *buf, int k);
+int				key_hook(int keycode, t_mlx *mlx);
 void			ft_draw(t_mlx *mlx);
 void			ft_raycast(t_mlx *mlx);
 void			ft_put_pixel(t_mlx *mlx, int x, int y, int color);

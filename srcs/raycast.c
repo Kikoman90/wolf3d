@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 17:44:32 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/18 19:47:13 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/22 15:18:24 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	ft_step(t_mlx *mlx)
 	if (mlx->cam.ydir < 0)
 	{
 		mlx->draw.ystep = -1;
-		mlx->draw.yside_dist = (mlx->cam.xpos - (double)mlx->draw.ymap) \
+		mlx->draw.yside_dist = (mlx->cam.ypos - (double)mlx->draw.ymap) \
 								* mlx->draw.ydelta_dist;
 	}
 	else
@@ -58,7 +58,7 @@ static void	ft_hit(t_mlx *mlx)
 			mlx->draw.ymap += mlx->draw.ystep;
 			mlx->draw.yside_dist += mlx->draw.ydelta_dist;
 		}
-		if (mlx->map[mlx->draw.xmap][mlx->draw.ymap] > '0')
+		if (mlx->map[mlx->draw.xmap][mlx->draw.ymap] == '1')
 			mlx->draw.hit = 1;
 	}
 }
@@ -71,8 +71,8 @@ static void	ft_wall_dist(t_mlx *mlx)
 	else
 		mlx->cam.wall_dist = fabs((mlx->draw.ymap - mlx->cam.ypos + \
 		(1 - mlx->draw.ystep) / 2) / mlx->cam.ydir);
-	if (mlx->cam.wall_dist < 0.005)
-		mlx->cam.wall_dist = 0.005;
+	if (mlx->cam.wall_dist <= 0.05)
+		mlx->cam.wall_dist = 0.05;
 }
 
 void		ft_raycast(t_mlx *mlx)

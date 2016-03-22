@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 18:38:26 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/18 19:09:25 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/22 14:31:23 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		ft_player_init(t_mlx *mlx)
 				mlx->player.ypos = i;
 				mlx->player.xdir = -1;
 				mlx->player.ydir = 0;
-				mlx->player.mvspd = 0.2;
+				mlx->player.mvspd = 0.3;
 				mlx->player.rtspd = 0.05;
 				return (0);
 			}
