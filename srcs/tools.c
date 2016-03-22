@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 18:38:26 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/22 17:35:50 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/22 18:46:01 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ int		ft_instructions(void)
 	ft_putendl("--- INSTRUCTIONS ---");
 	ft_putendl("< > : rotate camera");
 	ft_putendl("^ v : move");
-	ft_putendl("SPC : jump");
-	ft_putendl("CTRL : crouch");
 	ft_putendl("+/- : increase/decrease wall height");
 	ft_putendl("ESC : close");
 	return (0);
