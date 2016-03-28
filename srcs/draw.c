@@ -6,11 +6,39 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 16:36:22 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/22 18:13:11 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/28 13:34:30 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
+
+int			ft_borders(char *buf, int i)
+{
+	while (buf[i] != '\n')
+	{
+		if (buf[i] != '1')
+			return (-1);
+		i++;
+	}
+	while (buf[i])
+	{
+		i++;
+		if (buf[i] != '1')
+			return (-1);
+		while (buf[i] != '\0' && buf[i] != '\n')
+			i++;
+		if (buf[i - 1] != '1')
+			return (-1);
+	}
+	i--;
+	while (buf[i] != '\n')
+	{
+		if (buf[i] != '1')
+			return (-1);
+		i--;
+	}
+	return (0);
+}
 
 static int	ft_wall_color(t_mlx *mlx)
 {

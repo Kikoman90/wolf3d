@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 14:23:56 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/22 18:45:04 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/28 13:34:46 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ typedef struct	s_mlx
 }				t_mlx;
 
 int				ft_instructions(void);
+int				ft_borders(char *buf, int i);
 int				ft_checkchar(char *buf);
 int				ft_player_init(t_mlx *mlx);
 int				ft_linelen(char *buf, int k);

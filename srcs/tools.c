@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 18:38:26 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/28 12:47:14 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/03/28 13:34:41 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,10 @@ int		ft_checkchar(char *buf)
 		}
 		i++;
 	}
-	return (1);
+	if (ft_borders(buf, 0) == -1)
+	{
+		ft_putendl("error: map must have borders");
+		return (-1);
+	}
+	return (0);
 }
