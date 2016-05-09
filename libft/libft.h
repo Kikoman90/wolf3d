@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 13:21:24 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/18 19:43:33 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/05/09 16:06:36 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,13 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct		s_slist
+{
+	int				fd;
+	char			c;
+	struct s_slist	*next;
+}					t_slist;
 
 float				ft_sqrt(float nb);
 
@@ -91,7 +98,8 @@ char				*ft_strnew(size_t size);
 char				*ft_strmap(char const *s, char (*f)(char));
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
-char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_strjoin(char *s1, char *s2);
+char				*ft_strjoin2(char *s1, char *s2);
 char				*ft_strtrim(char const *s);
 
 char				*ft_itoa(int n);

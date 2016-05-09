@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 14:23:56 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/28 13:34:46 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/05/09 17:11:04 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,9 @@
 # define KEYPRESS (2)
 # define KEYPRESSMASK (1L << 0)
 
-# define BUFF_SIZE 100
-
 typedef struct	s_player
 {
+	int			sprint;
 	double		xpos;
 	double		ypos;
 	double		xdir;
@@ -94,9 +93,9 @@ typedef struct	s_mlx
 int				ft_instructions(void);
 int				ft_borders(char *buf, int i);
 int				ft_checkchar(char *buf);
-int				ft_player_init(t_mlx *mlx);
+int				ft_player_init(t_mlx *mlx, int j, int i);
 int				ft_linelen(char *buf, int k);
-int				key_hook(int keycode, t_mlx *mlx);
+int				key_press(int keycode, t_mlx *mlx);
 void			ft_draw(t_mlx *mlx);
 void			ft_raycast(t_mlx *mlx);
 void			ft_put_pixel(t_mlx *mlx, int x, int y, int color);

@@ -6,7 +6,7 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 18:38:26 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/28 13:34:41 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/05/09 17:13:34 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,8 @@ void	ft_put_pixel(t_mlx *mlx, int x, int y, int color)
 	}
 }
 
-int		ft_player_init(t_mlx *mlx)
+int		ft_player_init(t_mlx *mlx, int j, int i)
 {
-	int		i;
-	int		j;
-
-	j = 0;
 	while (mlx->map[j])
 	{
 		i = 0;
@@ -44,14 +40,16 @@ int		ft_player_init(t_mlx *mlx)
 				mlx->player.ypos = i;
 				mlx->player.xdir = -1;
 				mlx->player.ydir = 0;
-				mlx->player.mvspd = 0.3;
+				mlx->player.mvspd = 0.2;
 				mlx->player.rtspd = 0.05;
+				mlx->player.sprint = 0;
 				return (0);
 			}
 			i++;
 		}
 		j++;
 	}
+	ft_putendl("error : player not found in map");
 	return (-1);
 }
 
@@ -60,6 +58,7 @@ int		ft_instructions(void)
 	ft_putendl("--- INSTRUCTIONS ---");
 	ft_putendl("< > : rotate camera");
 	ft_putendl("^ v : move");
+	ft_putendl("shift: activate/deactivate sprint");
 	ft_putendl("+/- : increase/decrease wall height");
 	ft_putendl("ESC : close");
 	return (0);

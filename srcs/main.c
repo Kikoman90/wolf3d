@@ -6,19 +6,14 @@
 /*   By: fsidler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 13:52:46 by fsidler           #+#    #+#             */
-/*   Updated: 2016/03/22 18:44:53 by fsidler          ###   ########.fr       */
+/*   Updated: 2016/05/09 17:12:10 by fsidler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
 
-static int		ft_start(const char *s, int argc, int *fd)
+static int		ft_start(char *s, int *fd)
 {
-	if (argc != 2)
-	{
-		ft_putstr_fd("usage: ./wolf3d input_file\n", 2);
-		return (-1);
-	}
 	if (BUFF_SIZE < 1)
 	{
 		ft_putstr_fd("error: BUFF_SIZE must be greater than 0\n", 2);
@@ -32,22 +27,19 @@ static int		ft_start(const char *s, int argc, int *fd)
 	return (1);
 }
 
-static char		*ft_getbuf(int argc, const char *s, int *nbl)
+static char		*ft_getbuf(char *s, int *nbl)
 {
 	int		fd;
 	char	*buf;
 	char	*line;
 
 	buf = ft_strnew(1);
-	if (ft_start(s, argc, &fd) == -1)
+	if (ft_start(s, &fd) == -1)
 		return (NULL);
 	while (get_next_line(fd, &line) > 0 && (*nbl)++ > -1)
-		buf = ft_strjoin(ft_strjoin(buf, line), "\n");
-	if (get_next_line(fd, &line) < 0)
 	{
-		ft_putendl("error: get_next_line returned -1");
-		free(buf);
-		return (NULL);
+		buf = ft_strjoin2(ft_strjoin2(buf, line), "\n");
+		free(line);
 	}
 	if (ft_checkchar(buf) == -1)
 		return (NULL);
@@ -84,29 +76,28 @@ static char		**ft_getmap(char *buf, int nbl, int j)
 	return (map);
 }
 
-static t_mlx	*init_mlx(int argc, const char *s)
+static t_mlx	*init_mlx(char *s)
 {
 	t_mlx	*mlx;
 	char	*buf;
 	char	*name;
 
-	name = ft_strjoin("wolf3d: ", s);
+	name = ft_strjoin("wolf3d :", s);
 	if (!(mlx = (t_mlx *)malloc(sizeof(t_mlx))))
 		return (NULL);
 	mlx->nbl = 0;
 	mlx->mlx = mlx_init();
 	mlx->img = mlx_new_image(mlx->mlx, WIN_W, WIN_H);
 	mlx->win = mlx_new_window(mlx->mlx, WIN_W, WIN_H, name);
-	mlx->d = mlx_get_data_addr(mlx->img, &mlx->bpp, &mlx->size_line, \
+	free(name);
+	mlx->d = mlx_get_data_addr(mlx->img, &mlx->bpp, &mlx->size_line,
 			&mlx->endian);
-	buf = ft_getbuf(argc, s, &(mlx->nbl));
+	buf = ft_getbuf(s, &(mlx->nbl));
 	if ((mlx->map = ft_getmap(buf, mlx->nbl, 0)) == NULL)
 		return (NULL);
-	if (ft_player_init(mlx) == -1)
-	{
-		ft_putendl("error : player not found in map");
+	free(buf);
+	if (ft_player_init(mlx, 0, 0) == -1)
 		return (NULL);
-	}
 	mlx->cam.xplane = 0.0;
 	mlx->cam.yplane = 0.6;
 	mlx->dh = 2.0;
@@ -117,11 +108,16 @@ int				main(int argc, char **argv)
 {
 	t_mlx	*mlx;
 
-	if ((mlx = init_mlx(argc, argv[1])) != NULL)
+	if (argc != 2 || !argv[1])
+	{
+		ft_putendl("usage: ./wolf3d input_file");
+		return (0);
+	}
+	if ((mlx = init_mlx(argv[1])) != NULL)
 	{
 		ft_instructions();
 		ft_draw(mlx);
-		mlx_hook(mlx->win, KEYPRESS, KEYPRESSMASK, key_hook, mlx);
+		mlx_hook(mlx->win, KEYPRESS, KEYPRESSMASK, key_press, mlx);
 		mlx_loop(mlx->mlx);
 		mlx_destroy_window(mlx->mlx, mlx->win);
 	}

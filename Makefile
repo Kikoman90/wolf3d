@@ -6,7 +6,7 @@
 #    By: fsidler <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/09 13:47:47 by fsidler           #+#    #+#              #
-#    Updated: 2016/03/22 14:28:41 by fsidler          ###   ########.fr        #
+#    Updated: 2016/05/09 13:15:17 by fsidler          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = wolf3d
 CC = clang
 LIB_NAME = ft
 LIBDIR = libft
-FLAGS = -Wall -Wextra -Werror -O3
+FLAGS = -Wall -Wextra -Werror -g -o0
 
 HEADERS = includes
 

@@ -6,7 +6,7 @@
 #    By: fsidler <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/02 11:09:55 by fsidler           #+#    #+#              #
-#    Updated: 2016/02/17 18:08:44 by fsidler          ###   ########.fr        #
+#    Updated: 2016/05/05 17:07:23 by fsidler          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,6 +61,7 @@ SRC = ft_isascii.c \
 	  ft_strmapi.c \
 	  ft_strsub.c \
 	  ft_strjoin.c \
+	  ft_strjoin2.c \
 	  ft_strtrim.c \
 	  ft_itoa.c \
 	  ft_strsplit.c \
