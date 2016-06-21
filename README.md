@@ -1,4 +1,4 @@
-# wolf3d
+# Wolf3D
 
 Wolf3D is a program developped for my learning course at 42 school for the exploration of raycasting.
 <img align="center" src="http://image.noelshack.com/fichiers/2016/25/1466512397-screen-shot-2016-06-21-at-2-32-59-pm.png" width="100%" />
